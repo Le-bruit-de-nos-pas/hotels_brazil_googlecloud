@@ -12,6 +12,11 @@ FROM `data-lake-prd-314410.cz.pull-pesquisas`
 WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2019-01-01") AND TIMESTAMP("2019-12-31") AND Reservas IS NOT NULL
 AND Cidade_ID = 2851556;
 
+SELECT *
+FROM `data-lake-prd-314410.cz.pull-pesquisas`
+WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2020-01-01") AND TIMESTAMP("2020-12-31") AND Reservas IS NOT NULL
+AND Cidade_ID = 2851556;
+
 
 SELECT COUNT(*)
 FROM `data-lake-prd-314410.cz.pull-pesquisas-canal-hotel`
