@@ -1,3 +1,18 @@
+
+SELECT 
+  COUNT(*) AS row_count
+FROM (
+  SELECT 
+    Hotel_ID,
+    Moeda_ID
+  FROM `data-lake-prd-314410.cz.pull-pesquisas`
+  WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2024-01-01") AND TIMESTAMP("2024-12-31")
+    AND DiariaMedia IS NOT NULL
+    AND Reservas IS NOT NULL
+  GROUP BY Hotel_ID, Moeda_ID
+) subquery;
+
+
 SELECT DISTINCT CONCAT(CAST(Hotel_ID AS STRING), "-", CAST(Canal_ID AS STRING)) AS distinct_combinations
 FROM `data-lake-prd-314410.cz.pull-pesquisas`
 WHERE  TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2004-01-01") AND TIMESTAMP("2024-12-31") AND Reservas IS NOT NULL;
