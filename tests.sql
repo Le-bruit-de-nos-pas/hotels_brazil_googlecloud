@@ -1,3 +1,23 @@
+
+WITH max_diaria_cte AS (
+  SELECT 
+    MAX(DiariaMedia) AS max_diaria
+  FROM `data-lake-prd-314410.cz.pull-pesquisas`
+  WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2024-01-01") AND TIMESTAMP("2024-12-31")
+    AND DiariaMedia IS NOT NULL
+)
+SELECT 
+  p.DiariaMedia AS max_diaria,
+  p.Moeda_ID
+FROM `data-lake-prd-314410.cz.pull-pesquisas` p
+JOIN max_diaria_cte m
+  ON p.DiariaMedia = m.max_diaria
+WHERE TIMESTAMP_TRUNC(p.Data, DAY) BETWEEN TIMESTAMP("2024-01-01") AND TIMESTAMP("2024-12-31")
+  AND p.DiariaMedia IS NOT NULL;
+
+
+
+
 SELECT 
   SUM(size_bytes) AS total_bytes
 FROM 
