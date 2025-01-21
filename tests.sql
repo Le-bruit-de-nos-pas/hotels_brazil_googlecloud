@@ -33,6 +33,14 @@ WHERE  TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2024-01-01") AND TIMESTAMP(
 AND Reservas IS NOT NULL;
 
 
+SELECT 
+  Hotel_ID,
+  SUM(Reservas * Estadia) AS total_reservas_estadia
+FROM `data-lake-prd-314410.cz.pull-pesquisas`
+WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2004-01-01") AND TIMESTAMP("2024-12-31")
+  AND Reservas IS NOT NULL
+  AND Estadia IS NOT NULL
+GROUP BY Hotel_ID;
 
 
 SELECT 
