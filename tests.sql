@@ -1,4 +1,5 @@
-
+SELECT COUNT(DISTINCT RequestID) AS distinct_request_count
+FROM `data-lake-prd-314410.rz.pull-01-response`;
 
 SELECT COUNT(*)
 FROM `data-lake-prd-314410.rz.pull-01-response`
