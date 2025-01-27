@@ -2,7 +2,7 @@
 
 SELECT COUNT(*)
 FROM `data-lake-prd-314410.rz.pull-01-response`
-WHERE  TIMESTAMP_TRUNC(timestamp, MONTH) BETWEEN TIMESTAMP("2024-01-01") AND TIMESTAMP("2024-12-31") ;
+WHERE  TIMESTAMP_TRUNC(timestamp, DAY) BETWEEN TIMESTAMP("2024-01-01") AND TIMESTAMP("2024-12-31") ;
 
 
 SELECT MIN(timestamp) AS min_timestamp, MAX(timestamp) AS max_timestamp
