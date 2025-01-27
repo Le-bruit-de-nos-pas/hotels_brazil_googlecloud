@@ -1,3 +1,7 @@
+
+SELECT COUNT(DISTINCT RequestID) AS distinct_request_count
+FROM `data-lake-prd-314410.rz.pull-01-request`;
+
 SELECT COUNT(DISTINCT RequestID) AS distinct_request_count
 FROM `data-lake-prd-314410.rz.pull-01-response`; -- 28311644
 
