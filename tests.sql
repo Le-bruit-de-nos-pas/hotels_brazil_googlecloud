@@ -1,5 +1,8 @@
 
 SELECT MIN(timestamp) AS min_timestamp, MAX(timestamp) AS max_timestamp
+FROM `data-lake-prd-314410.rz.pull-01-response`;
+
+SELECT MIN(timestamp) AS min_timestamp, MAX(timestamp) AS max_timestamp
 FROM `data-lake-prd-314410.rz.pull-01-request`;
 
 WITH max_diaria_cte AS (
