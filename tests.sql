@@ -1,3 +1,8 @@
+SELECT COUNT(*) FROM `data-lake-prd-314410.rz.pull-02-pesquisas` 
+WHERE Cidade_ID = 509072;
+
+-- Request_ID, CheckIn_ID, CheckOut_ID, Ocupacao_ID, Hotel_ID, Tarifa_ID,  ValorTotal,  MotivoIndisponibilidade_ID, Antecedencia, Estadia 
+
 SELECT Request_ID, Ocupacao_ID, Hotel_ID, Tarifa_ID,  ValorTotal,  MotivoIndisponibilidade_ID, Antecedencia, Estadia FROM `data-lake-prd-314410.rz.pull-02-pesquisas` 
 WHERE Hotel_ID = 13264;
 
