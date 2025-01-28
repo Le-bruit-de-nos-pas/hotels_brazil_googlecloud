@@ -2,6 +2,17 @@ SELECT Request_ID, Ocupacao_ID, Hotel_ID, Tarifa_ID,  ValorTotal,  MotivoIndispo
 WHERE Hotel_ID = 13264;
 
 
+SELECT 
+  Hotel_ID,
+  COUNT(*) AS Row_Count
+FROM 
+  `data-lake-prd-314410.rz.pull-02-pesquisas`
+GROUP BY 
+  Hotel_ID
+ORDER BY 
+  Row_Count DESC; 
+
+
 
 SELECT Canal_ID, Hotel_ID, Ocupacao_ID, Antecedencia, Estadia,Requests, Requests_Com_Disponibilidade, DiariaMedia 
 FROM `data-lake-prd-314410.cz.pull-pesquisas`
