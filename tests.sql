@@ -1,3 +1,12 @@
+SELECT Canal_ID, SUM(Reservas) AS Total_Reservas
+FROM `data-lake-prd-314410.cz.pull-pesquisas`
+WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2024-01-01") AND TIMESTAMP("2024-12-31")  
+  AND Hotel_ID = 22  
+  AND Reservas IS NOT NULL
+  GROUP BY Canal_ID;
+
+
+
 SELECT Request_ID, Ocupacao_ID, Hotel_ID, Tarifa_ID,  ValorTotal,  MotivoIndisponibilidade_ID, Antecedencia, Estadia FROM `data-lake-prd-314410.rz.pull-02-pesquisas` 
 WHERE Hotel_ID = 6846;
 
