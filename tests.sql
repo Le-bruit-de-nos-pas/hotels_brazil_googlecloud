@@ -1,3 +1,7 @@
+SELECT Request_ID, Ocupacao_ID, Hotel_ID, Tarifa_ID,  ValorTotal,  MotivoIndisponibilidade_ID, Antecedencia, Estadia FROM `data-lake-prd-314410.rz.pull-02-pesquisas` 
+WHERE Hotel_ID = 13264;
+
+
 
 SELECT Canal_ID, Hotel_ID, Ocupacao_ID, Antecedencia, Estadia,Requests, Requests_Com_Disponibilidade, DiariaMedia 
 FROM `data-lake-prd-314410.cz.pull-pesquisas`
