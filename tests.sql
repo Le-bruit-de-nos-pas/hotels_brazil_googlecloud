@@ -1,3 +1,29 @@
+WITH unique_hotels_pesquisas AS (
+    SELECT DISTINCT Hotel_ID
+    FROM `data-lake-prd-314410.rz.pull-02-pesquisas`
+),
+unique_hotels_response AS (
+    SELECT DISTINCT HotelID
+    FROM `data-lake-prd-314410.rz.pull-01-response`
+),
+joined_hotels AS (
+    SELECT 
+        r.HotelID
+    FROM unique_hotels_response r
+    INNER JOIN unique_hotels_pesquisas p
+    ON r.HotelID = p.Hotel_ID
+)
+SELECT 
+    HotelID,
+    COUNT(*) AS response_count
+FROM `data-lake-prd-314410.rz.pull-01-response` r
+WHERE r.HotelID IN (SELECT HotelID FROM joined_hotels)
+GROUP BY HotelID;
+
+
+
+
+
 SELECT Canal_ID, SUM(Reservas) AS Total_Reservas
 FROM `data-lake-prd-314410.cz.pull-pesquisas`
 WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2024-01-01") AND TIMESTAMP("2024-12-31")  
