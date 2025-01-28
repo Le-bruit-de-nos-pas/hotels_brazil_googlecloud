@@ -18,6 +18,48 @@ WHERE Hotel_ID = 10646;
 SELECT Request_ID, Ocupacao_ID, Hotel_ID, Tarifa_ID,  ValorTotal,  MotivoIndisponibilidade_ID, Antecedencia, Estadia FROM `data-lake-prd-314410.rz.pull-02-pesquisas` 
 WHERE Hotel_ID  =20059474;
 
+SELECT Request_ID, Ocupacao_ID, Hotel_ID, Tarifa_ID,  ValorTotal,  MotivoIndisponibilidade_ID, Antecedencia, Estadia FROM `data-lake-prd-314410.rz.pull-02-pesquisas` 
+WHERE Hotel_ID IN (373,
+ 465,
+ 17497,
+ 925,
+ 1630,
+ 417,
+ 9065,
+ 335,
+ 13259,
+ 447,
+ 415,
+ 4388,
+ 4379,
+ 474,
+ 65,
+ 464,
+ 5752,
+ 565,
+ 470,
+ 370,
+ 2700,
+ 477,
+ 17958,
+ 489,
+ 1316,
+ 441,
+ 476,
+ 899,
+ 1629,
+ 922,
+ 924,
+ 903,
+ 1472,
+ 1473,
+ 1596,
+ 3838,
+ 1213,
+ 1667,
+ 1621);
+
+
 SELECT Canal_ID, Hotel_ID, Ocupacao_ID, Antecedencia, Estadia,Requests, Requests_Com_Disponibilidade, DiariaMedia 
 FROM `data-lake-prd-314410.cz.pull-pesquisas`
 WHERE  TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2024-12-18") AND TIMESTAMP("2024-12-19") 
