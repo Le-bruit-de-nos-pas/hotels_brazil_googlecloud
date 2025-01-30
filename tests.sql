@@ -8,6 +8,12 @@ SELECT DISTINCT Hotel_ID, Data, DiariaMedia, Reservas
   WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2022-01-01") AND TIMESTAMP("2023-01-01")
     AND Reservas IS NOT NULL;
 
+SELECT DISTINCT Hotel_ID, Data, DiariaMedia, Reservas
+  FROM `data-lake-prd-314410.cz.pull-pesquisas`
+  WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2023-01-01") AND TIMESTAMP("2024-01-01")
+    AND Reservas IS NOT NULL;
+
+
 
 
 
