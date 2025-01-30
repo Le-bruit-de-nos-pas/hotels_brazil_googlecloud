@@ -1,3 +1,12 @@
+SELECT COUNT(*) AS distinct_row_count
+FROM (
+  SELECT DISTINCT Hotel_ID, Data, DiariaMedia, Reservas
+  FROM `data-lake-prd-314410.cz.pull-pesquisas`
+  WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2004-01-01") AND TIMESTAMP("2024-12-31")
+    AND Reservas IS NOT NULL
+) AS distinct_data;
+
+
 SELECT DISTINCT Hotel_ID, Data, DiariaMedia, Reservas
   FROM `data-lake-prd-314410.cz.pull-pesquisas`
   WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2020-01-01") AND TIMESTAMP("2025-01-31")
