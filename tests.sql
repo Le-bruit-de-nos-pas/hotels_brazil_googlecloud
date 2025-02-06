@@ -1,3 +1,10 @@
+
+SELECT Request_ID,  Canal_ID, Data_ID, CheckIn_ID, CheckOut_ID, PesquisaPorDestino, PesquisaPorHotel, Hotel_ID, Cidade_ID, ValorTotal, Disponivel, Data
+, Antecedencia, Estadia
+FROM `data-lake-prd-314410.rz.pull-02-pesquisas` 
+WHERE Cidade_ID IN (509072, 4659669) ;
+
+
 SELECT DISTINCT Hotel_ID, Data, DiariaMedia, Reservas
   FROM `data-lake-prd-314410.cz.pull-pesquisas`
   WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2021-01-01") AND TIMESTAMP("2022-01-01")
