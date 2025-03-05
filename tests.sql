@@ -1,3 +1,14 @@
+SELECT
+  Cidade_ID,
+  Data,
+  Moeda_ID,
+  SUM(DiariaMedia * Reservas) / SUM(Reservas) AS weighted_mean_diaria,
+  COUNT(*) AS entry_count
+FROM `data-lake-prd-314410.cz.pull-pesquisas`
+WHERE TIMESTAMP_TRUNC(Data, DAY) BETWEEN TIMESTAMP("2004-01-01") AND TIMESTAMP("2025-01-31") -- Optional (!)
+  AND DiariaMedia IS NOT NULL
+  AND Reservas IS NOT NULL
+GROUP BY Cidade_ID, Data, Moeda_ID;
 
 SELECT Request_ID,  Canal_ID, Data_ID, CheckIn_ID, CheckOut_ID, PesquisaPorDestino, PesquisaPorHotel, Hotel_ID, Cidade_ID, ValorTotal, Disponivel, Data
 , Antecedencia, Estadia
